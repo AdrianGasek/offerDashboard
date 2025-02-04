@@ -9,7 +9,6 @@ export default function Home() {
   const products = productsData.data || [];
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
-  // Calculate the products for the current page
   const currentProducts = products.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
@@ -29,7 +28,6 @@ export default function Home() {
       </div>
 
       <div className="flex justify-center items-center gap-2 mt-8">
-        {/* Previous Button */}
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
@@ -38,7 +36,6 @@ export default function Home() {
           ←
         </button>
 
-        {/* Page Numbers */}
         {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
           <button
             key={page}
@@ -51,7 +48,6 @@ export default function Home() {
           </button>
         ))}
 
-        {/* Next Button */}
         <button
           onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
           disabled={currentPage === totalPages}
